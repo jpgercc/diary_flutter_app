@@ -1,34 +1,28 @@
-name: frist_flutterapp
-description: "A new Flutter project."
-
-
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
-
+name: fashion_store_app
+description: An elegant fashion store app in Flutter.
+publish_to: 'none'
 
 version: 1.0.0+1
 
-
 environment:
-  sdk: ^3.10.3
-
+  sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
-
-  cupertino_icons: ^1.0.8
+  cupertino_icons: ^1.0.2
+  carousel_slider: ^5.0.0 # Para o carrossel de imagens na tela de detalhes
+  provider: ^6.0.5 # Para gerenciamento de estado simples do carrinho
+  google_fonts: ^5.1.0 # Para fontes personalizadas (opcional, mas adiciona elegância)
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
-  flutter_lints: ^6.0.0
-
+  flutter_lints: ^2.0.0
 
 flutter:
-
   uses-material-design: true
 
   assets:
-    - imagens/
+    - assets/images/
