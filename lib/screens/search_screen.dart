@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-import 'package:frist_flutterapp/providers/diary_provider.dart';
-import 'package:frist_flutterapp/screens/entry_screen.dart';
+import 'package:diary_flutter_app/providers/diary_provider.dart';
+import 'package:diary_flutter_app/screens/entry_screen.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:frist_flutterapp/models/entry.dart';
-import 'package:frist_flutterapp/providers/diary_provider.dart';
+import 'package:diary_flutter_app/models/entry.dart';
+import 'package:diary_flutter_app/providers/diary_provider.dart';
 
 class EntryScreen extends StatefulWidget {
   final Entry? entry;

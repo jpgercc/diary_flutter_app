@@ -1,4 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Permissão de Internet necessária para GitHub Sync e Google Fonts -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:label="frist_flutterapp"
         android:name="${applicationName}"

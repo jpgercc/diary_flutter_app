@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../models/entry.dart';
-import 'drive_service.dart';
+import 'gist_service.dart';
 
 class DiaryService {
   final CloudService _cloudService;

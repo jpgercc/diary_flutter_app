@@ -1,4 +1,4 @@
-name: frist_flutterapp
+name: diary_flutter_app
 description: Meu Diário Pessoal.
 publish_to: 'none'
 version: 1.0.0+1
@@ -9,9 +9,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  google_sign_in: 6.2.1
-  googleapis: 13.2.0
-  extension_google_sign_in_as_googleapis_auth: 2.0.12
   http: ^1.1.0
   shared_preferences: ^2.2.0
   cupertino_icons: ^1.0.2
