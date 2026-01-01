@@ -5,6 +5,7 @@ import 'package:frist_flutterapp/providers/diary_provider.dart';
 import 'package:frist_flutterapp/screens/entries_by_year_screen.dart';
 import 'package:frist_flutterapp/screens/entry_screen.dart';
 import 'package:frist_flutterapp/screens/search_screen.dart';
+import '../services/drive_service.dart'; // Import necessário para ler o log
 
 class HomeScreenNew extends StatefulWidget {
   const HomeScreenNew({super.key});
@@ -16,6 +17,37 @@ class HomeScreenNew extends StatefulWidget {
 class _HomeScreenNewState extends State<HomeScreenNew> {
   int _selectedIndex = 0;
 
+  void _showDebugLog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        backgroundColor: Colors.grey[900],
+        title: Text('Log de Diagnóstico', style: GoogleFonts.courierPrime(color: Colors.white)),
+        content: SingleChildScrollView(
+          child: Text(
+            CloudService.debugLog.isEmpty ? "Nenhum log ainda..." : CloudService.debugLog,
+            style: GoogleFonts.courierPrime(color: Colors.greenAccent, fontSize: 12),
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx),
+            child: Text('Fechar', style: GoogleFonts.courierPrime(color: Colors.white)),
+          ),
+          TextButton(
+            onPressed: () {
+              // Força um novo sync
+              Navigator.pop(ctx);
+              Provider.of<DiaryProvider>(context, listen: false).syncCloud();
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Tentando sincronizar novamente...")));
+            },
+            child: Text('Tentar Sync', style: GoogleFonts.courierPrime(color: Colors.blue)),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final diary = Provider.of<DiaryProvider>(context);
@@ -25,7 +57,6 @@ class _HomeScreenNewState extends State<HomeScreenNew> {
           (sum, entry) => sum + entry.content.split(' ').length,
     );
 
-    // Agrupa entradas por ano
     final entriesByYear = <int, int>{};
     for (var entry in diary.entries) {
       final year = entry.date.year;
@@ -52,32 +83,26 @@ class _HomeScreenNewState extends State<HomeScreenNew> {
                       letterSpacing: 2,
                     ),
                   ),
-                  Row(
-                    children: [
-                      Container(
-                        width: 8,
-                        height: 8,
-                        decoration: const BoxDecoration(
-                          color: Colors.green,
-                          shape: BoxShape.circle,
+                  // Botão de Debug / Status
+                  InkWell(
+                    onTap: () => _showDebugLog(context),
+                    child: Row(
+                      children: [
+                        Container(
+                          width: 8,
+                          height: 8,
+                          decoration: BoxDecoration(
+                            color: diary.isConfigured ? Colors.green : Colors.red,
+                            shape: BoxShape.circle,
+                          ),
                         ),
-                      ),
-                      const SizedBox(width: 12),
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 16,
-                          vertical: 8,
+                        const SizedBox(width: 8),
+                        Text(
+                          'Info',
+                          style: GoogleFonts.courierPrime(fontSize: 12, color: Colors.grey),
                         ),
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.white),
-                          borderRadius: BorderRadius.circular(4),
-                        ),
-                        child: Text(
-                          'Modo Claro',
-                          style: GoogleFonts.courierPrime(fontSize: 14),
-                        ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ],
               ),
