@@ -102,9 +102,12 @@ class DiaryProvider with ChangeNotifier {
   }
 
   void _calculateStats() {
+    // RegExp para contar palavras sem criar listas enormes na memória
+    final regExp = RegExp(r'\S+');
+    
     _totalWords = _entries.fold<int>(
       0,
-      (sum, entry) => sum + (entry.content.trim().isEmpty ? 0 : entry.content.trim().split(RegExp(r'\s+')).length),
+      (sum, entry) => sum + regExp.allMatches(entry.content).length,
     );
 
     _entriesByYear = {};

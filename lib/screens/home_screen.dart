@@ -82,11 +82,14 @@ class _HomeScreenState extends State<HomeScreen> {
 
             // Content
             Expanded(
-              child: _selectedIndex == 0
-                  ? const HomeContent()
-                  : _selectedIndex == 1
-                  ? const YearsContent()
-                  : const SearchScreen(),
+              child: IndexedStack(
+                index: _selectedIndex,
+                children: const [
+                  HomeContent(),
+                  YearsContent(),
+                  SearchScreen(),
+                ],
+              ),
             ),
           ],
         ),
