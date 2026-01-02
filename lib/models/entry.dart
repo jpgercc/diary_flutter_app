@@ -22,7 +22,7 @@ class Entry {
   }
 
   factory Entry.fromJson(Map<String, dynamic> json) {
-    // Conversão segura do ID (aceita String ou int)
+    // Conversao segura do ID (aceita String ou int)
     int parsedId;
     if (json['id'] is int) {
       parsedId = json['id'];
@@ -32,17 +32,9 @@ class Entry {
       parsedId = DateTime.now().millisecondsSinceEpoch;
     }
 
-    // Conversão segura da data (aceita formato antigo com hora ou novo só data)
-    DateTime parsedDate;
-    try {
-      if (json['date'] != null) {
-        parsedDate = DateTime.parse(json['date'].toString());
-      } else {
-        parsedDate = DateTime.now();
-      }
-    } catch (e) {
-      parsedDate = DateTime.now();
-    }
+    // Tenta converter. Se for nulo ou falhar (retornar null), usa DateTime.now()
+    DateTime parsedDate = DateTime.tryParse(json['date']?.toString() ?? '') ?? DateTime.now();
+
 
     return Entry(
       id: parsedId,

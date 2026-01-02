@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:diary_flutter_app/providers/diary_provider.dart';
 import 'package:diary_flutter_app/screens/entries_by_year_screen.dart';
 import 'package:diary_flutter_app/screens/entry_screen.dart';
 import 'package:diary_flutter_app/screens/search_screen.dart';
 
-class HomeScreenNew extends StatefulWidget {
-  const HomeScreenNew({super.key});
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
   @override
-  State<HomeScreenNew> createState() => _HomeScreenNewState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenNewState extends State<HomeScreenNew> {
+class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
 
   @override
@@ -43,12 +42,13 @@ class _HomeScreenNewState extends State<HomeScreenNew> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
+                  const Text(
                     '— DIÁRIO —',
-                    style: GoogleFonts.courierPrime(
+                    style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                       letterSpacing: 2,
+                      fontFamily: 'Courier New',
                     ),
                   ),
                   // Indicador discreto de status
@@ -65,7 +65,7 @@ class _HomeScreenNewState extends State<HomeScreenNew> {
                       const SizedBox(width: 8),
                       Text(
                         diary.isConfigured ? 'Sync On' : 'Offline',
-                        style: GoogleFonts.courierPrime(fontSize: 12, color: Colors.grey),
+                        style: const TextStyle(fontSize: 12, color: Colors.grey, fontFamily: 'Courier New'),
                       ),
                     ],
                   ),
@@ -119,10 +119,11 @@ class _HomeScreenNewState extends State<HomeScreenNew> {
         children: [
           Text(
             title,
-            style: GoogleFonts.courierPrime(
+            style: TextStyle(
               fontSize: 16,
               fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
               color: isSelected ? Colors.white : Colors.grey,
+              fontFamily: 'Courier New',
             ),
           ),
           const SizedBox(height: 8),
@@ -142,20 +143,22 @@ class _HomeScreenNewState extends State<HomeScreenNew> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
+          const Text(
             'Bem-vindo ao seu Diário',
-            style: GoogleFonts.courierPrime(
+            style: TextStyle(
               fontSize: 28,
               fontWeight: FontWeight.bold,
+              fontFamily: 'Courier New',
             ),
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 24),
-          Text(
+          const Text(
             'O que seria de nós sem nossas memórias? Em Lete, Mnemosine.',
-            style: GoogleFonts.courierPrime(
+            style: TextStyle(
               fontSize: 16,
               color: Colors.grey,
+              fontFamily: 'Courier New',
             ),
             textAlign: TextAlign.center,
           ),
@@ -178,18 +181,20 @@ class _HomeScreenNewState extends State<HomeScreenNew> {
       children: [
         Text(
           number,
-          style: GoogleFonts.courierPrime(
+          style: const TextStyle(
             fontSize: 64,
             fontWeight: FontWeight.bold,
+            fontFamily: 'Courier New',
           ),
         ),
         const SizedBox(height: 8),
         Text(
           label,
-          style: GoogleFonts.courierPrime(
+          style: const TextStyle(
             fontSize: 14,
             color: Colors.grey,
             letterSpacing: 2,
+            fontFamily: 'Courier New',
           ),
         ),
       ],
@@ -198,12 +203,13 @@ class _HomeScreenNewState extends State<HomeScreenNew> {
 
   Widget _buildYearsContent(List<int> years, Map<int, int> entriesByYear) {
     if (years.isEmpty) {
-      return Center(
+      return const Center(
         child: Text(
           'Nenhuma entrada ainda.\nComece a escrever!',
-          style: GoogleFonts.courierPrime(
+          style: TextStyle(
             fontSize: 18,
             color: Colors.grey,
+            fontFamily: 'Courier New',
           ),
           textAlign: TextAlign.center,
         ),
@@ -236,16 +242,18 @@ class _HomeScreenNewState extends State<HomeScreenNew> {
                 children: [
                   Text(
                     year.toString(),
-                    style: GoogleFonts.courierPrime(
+                    style: const TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
+                      fontFamily: 'Courier New',
                     ),
                   ),
                   Text(
                     '$count ${count == 1 ? 'entrada' : 'entradas'}',
-                    style: GoogleFonts.courierPrime(
+                    style: const TextStyle(
                       fontSize: 16,
                       color: Colors.grey,
+                      fontFamily: 'Courier New',
                     ),
                   ),
                 ],

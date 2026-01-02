@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:diary_flutter_app/models/entry.dart';
 import 'package:diary_flutter_app/providers/diary_provider.dart';
 
@@ -27,9 +26,9 @@ class _EntryScreenState extends State<EntryScreen> {
     if (_contentController.text.trim().isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(
+          content: const Text(
             'O conteúdo não pode estar vazio!',
-            style: GoogleFonts.courierPrime(),
+            style: TextStyle(fontFamily: 'Courier New'),
           ),
           backgroundColor: Colors.red[900],
         ),
@@ -59,7 +58,7 @@ class _EntryScreenState extends State<EntryScreen> {
         elevation: 0,
         title: Text(
           widget.entry == null ? 'Nova Entrada' : 'Editar Entrada',
-          style: GoogleFonts.courierPrime(fontSize: 18),
+          style: const TextStyle(fontSize: 18, fontFamily: 'Courier New'),
         ),
         actions: [
           if (widget.entry != null)
@@ -70,20 +69,20 @@ class _EntryScreenState extends State<EntryScreen> {
                   context: context,
                   builder: (ctx) => AlertDialog(
                     backgroundColor: Colors.grey[900],
-                    title: Text(
+                    title: const Text(
                       'Excluir entrada?',
-                      style: GoogleFonts.courierPrime(),
+                      style: TextStyle(fontFamily: 'Courier New'),
                     ),
-                    content: Text(
+                    content: const Text(
                       'Esta ação não pode ser desfeita.',
-                      style: GoogleFonts.courierPrime(color: Colors.grey),
+                      style: TextStyle(color: Colors.grey, fontFamily: 'Courier New'),
                     ),
                     actions: [
                       TextButton(
                         onPressed: () => Navigator.pop(ctx),
-                        child: Text(
+                        child: const Text(
                           'Cancelar',
-                          style: GoogleFonts.courierPrime(),
+                          style: TextStyle(fontFamily: 'Courier New'),
                         ),
                       ),
                       TextButton(
@@ -93,9 +92,9 @@ class _EntryScreenState extends State<EntryScreen> {
                           Navigator.pop(ctx);
                           Navigator.pop(context);
                         },
-                        child: Text(
+                        child: const Text(
                           'Excluir',
-                          style: GoogleFonts.courierPrime(color: Colors.red),
+                          style: TextStyle(color: Colors.red, fontFamily: 'Courier New'),
                         ),
                       ),
                     ],
@@ -122,14 +121,15 @@ class _EntryScreenState extends State<EntryScreen> {
           children: [
             TextField(
               controller: _titleController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: 'Título',
-                hintStyle: GoogleFonts.courierPrime(color: Colors.grey),
+                hintStyle: TextStyle(color: Colors.grey, fontFamily: 'Courier New'),
                 border: InputBorder.none,
               ),
-              style: GoogleFonts.courierPrime(
+              style: const TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
+                fontFamily: 'Courier New',
               ),
             ),
             Container(
@@ -143,14 +143,15 @@ class _EntryScreenState extends State<EntryScreen> {
                 maxLines: null,
                 expands: true,
                 textAlignVertical: TextAlignVertical.top,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: 'O que você está pensando?',
-                  hintStyle: GoogleFonts.courierPrime(color: Colors.grey),
+                  hintStyle: TextStyle(color: Colors.grey, fontFamily: 'Courier New'),
                   border: InputBorder.none,
                 ),
-                style: GoogleFonts.courierPrime(
+                style: const TextStyle(
                   fontSize: 16,
                   height: 1.6,
+                  fontFamily: 'Courier New',
                 ),
               ),
             ),

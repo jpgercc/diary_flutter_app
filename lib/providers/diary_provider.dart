@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/entry.dart';
 import '../services/diary_service.dart';
+import 'package:flutter/foundation.dart'; // Necessário para debugPrint
 
 class DiaryProvider with ChangeNotifier {
   late final DiaryService _diaryService;
@@ -26,15 +27,15 @@ class DiaryProvider with ChangeNotifier {
     // 1. Carrega o que tem no celular
     await _loadEntries(); 
 
-    // 2. CORREÇÃO CRÍTICA:
-    // Se o celular estiver vazio (instalação nova) E tivermos nuvem configurada,
+    // 2. CORREÇÃO CRITICA:
+    // Se o celular estiver vazio (instalacaoo nova) E tivermos nuvem configurada,
     // OBRIGA a esperar o download da nuvem antes de iniciar.
     if (_entries.isEmpty && _isConfigured) {
-       print("Cache vazio. Forçando download da nuvem antes de iniciar...");
-       await syncCloud(); 
+      debugPrint("Cache vazio. Forçando download da nuvem antes de iniciar...");
+       await syncCloud();
     } else if (_isConfigured) {
        // Se já tem dados locais, inicia rápido e atualiza em background
-       print("Cache encontrado. Iniciando e sincronizando em background...");
+      debugPrint("Cache encontrado. Iniciando e sincronizando em background...");
        syncCloud();
     }
 
@@ -55,7 +56,7 @@ class DiaryProvider with ChangeNotifier {
       // Recarrega do disco para a memória
       await _loadEntries(); 
     } catch (e) {
-      print("Erro no sync: $e");
+      debugPrint("Erro no sync: $e");
     }
   }
 

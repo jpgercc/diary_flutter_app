@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:intl/intl.dart';
 import 'package:diary_flutter_app/providers/diary_provider.dart';
 import 'package:diary_flutter_app/screens/entry_screen.dart';
 
@@ -31,7 +29,7 @@ class EntriesByYearScreen extends StatelessWidget {
         .toList()
       ..sort((a, b) => b.date.compareTo(a.date));
 
-    // Agrupa por mês
+    // Agrupa por mes
     final entriesByMonth = <int, List>{};
     for (var entry in entriesInYear) {
       final month = entry.date.month;
@@ -46,9 +44,10 @@ class EntriesByYearScreen extends StatelessWidget {
         elevation: 0,
         title: Text(
           year.toString(),
-          style: GoogleFonts.courierPrime(
+          style: const TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,
+            fontFamily: 'Courier New',
           ),
         ),
         bottom: PreferredSize(
@@ -74,11 +73,12 @@ class EntriesByYearScreen extends StatelessWidget {
                 padding: const EdgeInsets.only(bottom: 16, top: 16),
                 child: Text(
                   monthName,
-                  style: GoogleFonts.courierPrime(
+                  style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                     letterSpacing: 2,
                     color: Colors.grey,
+                    fontFamily: 'Courier New',
                   ),
                 ),
               ),
@@ -111,16 +111,18 @@ class EntriesByYearScreen extends StatelessWidget {
                               children: [
                                 Text(
                                   day,
-                                  style: GoogleFonts.courierPrime(
+                                  style: const TextStyle(
                                     fontSize: 24,
                                     fontWeight: FontWeight.bold,
+                                    fontFamily: 'Courier New',
                                   ),
                                 ),
                                 Text(
                                   weekday,
-                                  style: GoogleFonts.courierPrime(
+                                  style: const TextStyle(
                                     fontSize: 12,
                                     color: Colors.grey,
+                                    fontFamily: 'Courier New',
                                   ),
                                 ),
                               ],
@@ -136,9 +138,10 @@ class EntriesByYearScreen extends StatelessWidget {
                                     padding: const EdgeInsets.only(bottom: 4),
                                     child: Text(
                                       entry.title,
-                                      style: GoogleFonts.courierPrime(
+                                      style: const TextStyle(
                                         fontSize: 16,
                                         fontWeight: FontWeight.bold,
+                                        fontFamily: 'Courier New',
                                       ),
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
@@ -146,9 +149,10 @@ class EntriesByYearScreen extends StatelessWidget {
                                   ),
                                 Text(
                                   entry.content,
-                                  style: GoogleFonts.courierPrime(
+                                  style: TextStyle(
                                     fontSize: 14,
                                     color: Colors.grey[400],
+                                    fontFamily: 'Courier New',
                                   ),
                                   maxLines: 2,
                                   overflow: TextOverflow.ellipsis,

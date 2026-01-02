@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'providers/diary_provider.dart';
 import 'screens/home_screen.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  
+  // REMOVIDO: prefs.clear() - Isso estava apagando seus dados/ID do Gist toda vez!
+  
   runApp(const MyApp());
 }
 
@@ -26,12 +29,10 @@ class MyApp extends StatelessWidget {
             primary: Colors.white,
             secondary: Colors.grey[800]!,
             surface: Colors.black,
-            // background: removido pois é deprecated, surface já cobre isso
           ),
           scaffoldBackgroundColor: Colors.black,
-          textTheme: GoogleFonts.courierPrimeTextTheme(
-            ThemeData.dark().textTheme,
-          ),
+          // Mantendo Courier New para garantir compatibilidade Windows/Mobile sem erros de asset
+          fontFamily: 'Courier New', 
         ),
         home: const SplashScreenWrapper(),
       ),
@@ -53,7 +54,7 @@ class SplashScreenWrapper extends StatelessWidget {
             ),
           );
         }
-        return const HomeScreenNew();
+        return const HomeScreen();
       },
     );
   }

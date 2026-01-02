@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:intl/intl.dart';
 import 'package:diary_flutter_app/providers/diary_provider.dart';
 import 'package:diary_flutter_app/screens/entry_screen.dart';
 
@@ -41,10 +39,10 @@ class _SearchScreenState extends State<SearchScreen> {
           padding: const EdgeInsets.all(24),
           child: TextField(
             controller: _searchController,
-            style: GoogleFonts.courierPrime(fontSize: 16),
+            style: const TextStyle(fontSize: 16, fontFamily: 'Courier New'),
             decoration: InputDecoration(
               hintText: 'Pesquisar entradas...',
-              hintStyle: GoogleFonts.courierPrime(color: Colors.grey),
+              hintStyle: const TextStyle(color: Colors.grey, fontFamily: 'Courier New'),
               prefixIcon: const Icon(Icons.search, color: Colors.grey),
               filled: true,
               fillColor: Colors.grey[900],
@@ -66,14 +64,13 @@ class _SearchScreenState extends State<SearchScreen> {
         ),
         Expanded(
           child: filteredEntries.isEmpty
-              ? Center(
+              ? const Center(
             child: Text(
-              _searchQuery.isEmpty
-                  ? 'Digite para pesquisar'
-                  : 'Nenhuma entrada encontrada',
-              style: GoogleFonts.courierPrime(
+              'Nenhuma entrada encontrada',
+              style: TextStyle(
                 fontSize: 16,
                 color: Colors.grey,
+                fontFamily: 'Courier New',
               ),
             ),
           )
@@ -111,9 +108,10 @@ class _SearchScreenState extends State<SearchScreen> {
                               Expanded(
                                 child: Text(
                                   entry.title,
-                                  style: GoogleFonts.courierPrime(
+                                  style: const TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
+                                    fontFamily: 'Courier New',
                                   ),
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
@@ -121,9 +119,10 @@ class _SearchScreenState extends State<SearchScreen> {
                               ),
                             Text(
                               dateStr,
-                              style: GoogleFonts.courierPrime(
+                              style: const TextStyle(
                                 fontSize: 12,
                                 color: Colors.grey,
+                                fontFamily: 'Courier New',
                               ),
                             ),
                           ],
@@ -131,9 +130,10 @@ class _SearchScreenState extends State<SearchScreen> {
                         const SizedBox(height: 8),
                         Text(
                           entry.content,
-                          style: GoogleFonts.courierPrime(
+                          style: TextStyle(
                             fontSize: 14,
                             color: Colors.grey[400],
+                            fontFamily: 'Courier New',
                           ),
                           maxLines: 3,
                           overflow: TextOverflow.ellipsis,

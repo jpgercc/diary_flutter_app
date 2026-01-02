@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../models/entry.dart';
 import 'gist_service.dart';
+import 'package:flutter/foundation.dart'; //  Para debugPrint
 
 class DiaryService {
   final CloudService _cloudService;
@@ -66,7 +67,7 @@ class DiaryService {
         final List<dynamic> jsonList = jsonDecode(content);
         return jsonList.map((e) => Entry.fromJson(e)).toList();
       } catch (e) {
-        print('Erro ao ler cache local: $e');
+        debugPrint('Erro ao ler cache local: $e');
       }
     }
     return [];
