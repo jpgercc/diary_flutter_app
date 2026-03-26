@@ -1,4 +1,4 @@
-# diary_flutter_app | branch: gist-data
+# diary | branch: gist-data
 
 <img width="701" height="698" alt="Image" src="https://github.com/user-attachments/assets/6cbc9941-9f5a-4fae-9e38-01a475f00854" />
 
