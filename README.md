@@ -1,8 +1,7 @@
 # diary_flutter_app | branch: main (json-data)
-<img width="1552" height="841" alt="Image" src="https://github.com/user-attachments/assets/058bbed4-b30a-40b0-80ae-fb5e09d56c64" />
+<img width="701" height="698" alt="Image" src="https://github.com/user-attachments/assets/6cbc9941-9f5a-4fae-9e38-01a475f00854" />
 
-<img width="1563" height="828" alt="Image" src="https://github.com/user-attachments/assets/191a2dfc-73a5-49bf-9b59-47708a71c65c" />
-
+<img width="1634" height="857" alt="Image" src="https://github.com/user-attachments/assets/e5bcbe28-72c2-44a3-8063-044eae44baa7" />
 
 ## Purpose
 A lightweight Flutter journal that surfaces the user’s thoughts, memories, and word count statistics via a Courier Prime theme while keeping everything on-device. The root widget wires a `ChangeNotifierProvider` so the diary entries load once at startup and feed the multi-tab `HomeScreenNew` that exposes a summary, year view, and search interface.
