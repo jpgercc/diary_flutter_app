@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ID do Cliente Google para autenticação -->
+    <!-- Este valor deve corresponder ao "Web client ID" no console do Google Cloud, 
+         mas como você forneceu um ID específico, vamos usá-lo aqui para garantir. -->
+    <string name="default_web_client_id">1098323877994-v5djhtq9rvkckggoogua2dsjdctfdhk4.apps.googleusercontent.com</string>
+</resources>
