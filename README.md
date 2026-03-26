@@ -1,4 +1,4 @@
-# diary_flutter_app | branch: main (json-data)
+# diary | branch: main (json-data)
 <img width="701" height="698" alt="Image" src="https://github.com/user-attachments/assets/6cbc9941-9f5a-4fae-9e38-01a475f00854" />
 
 <img width="1634" height="857" alt="Image" src="https://github.com/user-attachments/assets/e5bcbe28-72c2-44a3-8063-044eae44baa7" />
